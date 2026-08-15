@@ -1,25 +1,51 @@
 <!doctype html>
 <html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Frame Offset</title>
+  <style>
+    .frame-window {
+      width: 660px;      /* 보여줄 영역 크기 */
+      height: 408px;
+      overflow-x: hidden; /* 가로 스크롤 완전 차단 */
+      overflow-y: auto;   /* 세로 스크롤만 허용 */
+      position: relative;
+      border: 1px solid #000;
+    }
+    .frame-window iframe {
+      position: absolute;
+      width: 640px;     /* 실제 페이지 렌더 크기 */
+      height: 10000px;
+      border: 1px solid #000;
+      left: -1px;
+      /* CSS 변수로 top 값을 전달받으며, 기본값은 -280px */
+      top: var(--top-offset, -280px);
+    }
+  </style>
+</head>
+<body>
+
   <div class="frame-window">
-    <iframe src="https://blog.naver.com/PostView.naver?blogId=htmp00&logNo=224373394599" scrolling="no" allowfullscreen></iframe>
+    <iframe id="target-iframe" src="https://m.blog.naver.com/PostView.naver?blogId=htmp00&logNo=224373394599" allowfullscreen></iframe>
   </div>
 
-  <style>
-  .frame-window {
-    width: 880px;      /* 보여줄 영역 크기 */
-    height: 496px;
-    overflow-x: hidden; /* 가로 스크롤 완전 차단 */
-    overflow-y: auto;   /* 세로 스크롤만 허용 */
-    position: relative;
-    border: 1px solid #000;
-  }
-  .frame-window iframe {
-    position: absolute;
-    width: 966px;     /* 실제 페이지 렌더 크기 */
-    height: 15000px;
-    border: 1px solid #000;
-    left: -50px;      /* 보고 싶은 지점의 x 좌표 만큼 음수 */
-    top:  -3082px;      /* y 좌표 만큼 음수 -871px + (-552 x n) */
-  }
-  </style>
+  <script>
+    // top 위치를 계산하여 iframe 스타일의 CSS 변수로 반영하는 함수
+    function setFrameTop(arg) {
+      const calculatedTop = -(280 + (407 * (arg-1)));
+      const iframe = document.getElementById('target-iframe');
+      
+      if (iframe) {
+        iframe.style.setProperty('--top-offset', `${calculatedTop}px`);
+      }
+      
+      return `${calculatedTop}px`;
+    }
+
+    // 예시 실행: argument 값으로 3을 전달
+    // 계산 결과: -(280 + (407 * (3-1)))) = -1094px
+    setFrameTop(5);
+  </script>
+
+</body>
 </html>
