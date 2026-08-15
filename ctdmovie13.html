@@ -8,7 +8,8 @@
   .frame-window {
     width: 880px;      /* 보여줄 영역 크기 */
     height: 496px;
-    overflow: scroll;
+    overflow-x: hidden; /* 가로 스크롤 완전 차단 */
+    overflow-y: auto;   /* 세로 스크롤만 허용 */
     position: relative;
     border: 1px solid #000;
   }

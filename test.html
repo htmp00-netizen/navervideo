@@ -6,9 +6,10 @@
 
   <style>
   .frame-window {
-    width: 640px;      /* 보여줄 영역 크기 */
-    height: 478px;
-    overflow: scroll;
+    width: 660px;      /* 보여줄 영역 크기 */
+    height: 408px;
+    overflow-x: hidden; /* 가로 스크롤 완전 차단 */
+    overflow-y: auto;   /* 세로 스크롤만 허용 */
     position: relative;
     border: 1px solid #000;
   }
@@ -17,7 +18,7 @@
     width: 640px;     /* 실제 페이지 렌더 크기 */
     height: 15000px;
     border: 1px solid #000;
-    left: -0px;      /* 보고 싶은 지점의 x 좌표 만큼 음수 */
+    left: -px;      /* 보고 싶은 지점의 x 좌표 만큼 음수 */
     top:  -3535px;      /* y 좌표 만큼 음수 -871px + (-552 x n) */
   }
   </style>
