@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="ko">
   <div class="frame-window">
-    <iframe src="https://m.blog.naver.com/PostView.naver?blogId=htmp00&logNo=224373394599#SE-e56f6cdc-466c-4d3d-adfc-172e10be51fa" width="642" height="404" allow="fullscreen"></iframe>
+    <iframe src="https://blog.naver.com/PostView.naver?blogId=htmp00&logNo=224373394599" scrolling="no"></iframe>
   </div>
+
+  <style>
+  .frame-window {
+    width: 880px;      /* 보여줄 영역 크기 */
+    height: 496px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #000;
+  }
+  .frame-window iframe {
+    position: absolute;
+    width: 966px;     /* 실제 페이지 렌더 크기 */
+    height: 15000px;
+    border: 1px solid #000;
+    left: -50px;      /* 보고 싶은 지점의 x 좌표 만큼 음수 */
+    top:  -6402px;      /* y 좌표 만큼 음수 -871px + (-552 x n) */
+  }
+  </style>
 </html>
