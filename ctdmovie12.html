@@ -26,13 +26,13 @@
 <body>
 
   <div class="frame-window">
-    <iframe id="target-iframe" src="https://m.blog.naver.com/PostView.naver?blogId=htmp00&logNo=224373394599" allowfullscreen></iframe>
+    <iframe id="target-iframe" src="https://m.blog.naver.com/PostView.naver?blogId=htmp00&logNo=223183933817" allowfullscreen></iframe>
   </div>
 
   <script>
     // top 위치를 계산하여 iframe 스타일의 CSS 변수로 반영하는 함수
     function setFrameTop(arg) {
-      const calculatedTop = -(280 + (407 * (arg-1)));
+      const calculatedTop = -(280 + 48 + (407 * (arg-1)));
       const iframe = document.getElementById('target-iframe');
       
       if (iframe) {
@@ -43,8 +43,8 @@
     }
 
     // 예시 실행: argument 값으로 3을 전달
-    // 계산 결과: -(280 + (407 * (3-1)))) = -1094px
-    setFrameTop(12);
+    // 계산 결과: -(280 + (407 + 48 * (3-1)))) = -1094px
+    setFrameTop(1);
   </script>
 
 </body>
