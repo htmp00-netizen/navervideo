@@ -1,9 +1,0 @@
-# netlify.toml
-
-[[redirects]]
-  # 내 사이트의 /proxy-blog 경로로 들어오면 네이버 블로그 페이지를 200 프록시로 전달
-  from = "/proxy-224373394599"
-  to = "https://blog.naver.com/htmp00/224373394599"
-  status = 200
-  force = true
-  headers = {X-Frame-Options = "ALLOWALL"}
